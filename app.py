@@ -1,11 +1,24 @@
-from flask import Flask, render_template, request
 import requests
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
+BASE_URL = "http://VPS_IP or API endpoint"
+
+
 @app.route("/")
-def home(): 
+def home():
     return render_template("index.html")
+
+
+@app.route("/languages")
+def languages():
+    try:
+        res = requests.get(f"{BASE_URL}/languages")
+        return jsonify(res.json())
+    except Exception as e:
+        return jsonify({"error": str(e)})
+
 
 @app.route("/translate", methods=["POST"])
 def translate():
@@ -14,38 +27,29 @@ def translate():
     source = request.form["source"]
     target = request.form["target"]
 
-    payload = {
-        "q": text,
-        "source": source,
-        "target": target,
-        "format": "text"
-    }
-
-    BASE_URL = "http://143.244.183.190"
-
     try:
-
-        response = requests.post(
+        res = requests.post(
             f"{BASE_URL}/translate",
-            json=payload,
+            json={
+                "q": text,
+                "source": source,
+                "target": target,
+                "format": "text"
+            },
             timeout=10
         )
 
-        response.raise_for_status()
-
-        data = response.json()
-
-        translated_text = data["translatedText"]
+        data = res.json()
+        return jsonify({
+            "translatedText": data.get("translatedText", ""),
+            "success": True
+        })
 
     except Exception as e:
-
-        translated_text = f"Error: {str(e)}"
-
-    return render_template(
-        "index.html",
-        translated_text=translated_text,
-        original_text=text
-    )
-
+        return jsonify({
+            "success": False,
+            "error": str(e)
+        })
+    
 if __name__ == "__main__":
     app.run(debug=True)

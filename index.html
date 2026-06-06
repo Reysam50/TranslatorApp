@@ -1,0 +1,464 @@
+<style>
+    li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    }
+</style>
+
+
+<br>
+<h1>Full Project Description<br></h1>
+<p>PolyLingo Translator is a web application designed to provide language translation capabilities through a modern browser-based interface. The system allows users to enter text, select source and target languages, and receive translated results in real time.</p>
+<p>Unlike traditional translation projects that directly consume public APIs, this project deploys a self-hosted LibreTranslate service on a remote Linux VPS and uses a Flask backend as an intermediary layer between the frontend and translation engine. This architecture improves flexibility, allows future integration of multiple translation providers, and demonstrates practical API consumption and backend engineering concepts.</p>
+<p>The application automatically retrieves supported languages from the translation server, dynamically populates language selection dropdowns, and provides additional usability features such as text-to-speech output, translation result copying, loading indicators, and responsive design.<br><br></p>
+<p>This project was also used as a learning exercise to gain hands-on experience with:<br></p>
+
+<ul>
+    <li>Flask web development</li>
+    <li>HTTP requests and responses</li>
+    <li>REST API consumption</li>
+    <li>JSON data handling</li>
+    <li>Linux server deployment</li>
+    <li>Reverse proxy configuration</li>
+    <li>Client-server architecture</li>
+    <li>Frontend-backend communication</li>
+</ul>
+<li>
+    <p><br></p>
+</li>
+
+<hr>
+<h1 style="text-align: center;">System Architecture<br><img src="blob:https://lyson-reysam-mbughi-portifolio-webs.vercel.app/813c072f-8d66-474c-9f0b-48fd53021403" alt=""></h1>
+
+<hr>
+<h1>Project Structure<br></h1>
+<pre dir="ltr"><code dir="ltr"><span><br>TranslatorApp/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+│
+├── templates/
+│   └── index.html
+│
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   │
+│   └── js/
+│       └── script.js
+│
+└── venv/<br><br></span></code></pre>
+<h2><br></h2>
+
+<h1>Technology Stack<br></h1>
+<h2>Backend</h2>
+<h3>Python</h3>
+<p>Core programming language used to build the server-side logic and API integration.</p>
+<p>Responsibilities:</p>
+<ul>
+    <li>
+        <p>Process user requests
+    </li>
+    <li>
+        <p>Communicate with translation services
+    </li>
+    <li>
+        <p>Parse API responses
+    </li>
+    <li>
+        <p>Handle errors
+    </li>
+    <li>
+        <p>Serve frontend templates
+    </li>
+    <li>
+        <p><br></p>
+    </li>
+</ul>
+<h3>Flask</h3>
+<p>Python web framework used to create the application backend.</p>
+<p>Responsibilities:</p>
+<ul>
+    <li>
+        <p>Routing
+    </li>
+    <li>
+        <p>Request handling
+    </li>
+    <li>
+        <p>Template rendering
+    </li>
+    <li>
+        <p>API endpoints
+    </li>
+    <li>
+        <p>Client-server communication
+    </li>
+    <li>
+        <p><br></p>
+    </li>
+</ul>
+<h3>Requests Library</h3>
+<p>Python HTTP client library used for API communication.</p>
+<p>Responsibilities:</p>
+<ul>
+    <li>
+        <p>Sending HTTP POST requests
+    </li>
+    <li>
+        <p>Sending JSON payloads
+    </li>
+    <li>
+        <p>Receiving translation responses
+    </li>
+    <li>
+        <p>Parsing returned JSON data
+    </li>
+    <li>
+        <p><br></p>
+    </li>
+</ul>
+<hr>
+<h2>Frontend</h2>
+<h3>HTML5</h3>
+<p>Provides the structure of the web interface.
+<p>Responsibilities:</p>
+<ul>
+    <li>
+        <p>Translation form
+    </li>
+    <li>
+        <p>Text input fields
+    </li>
+    <li>
+        <p>Language selection menus
+    </li>
+    <li>
+        <p>Result display
+    </li>
+</ul>
+<h3>CSS3</h3>
+<p>Provides styling and responsive design.</p>
+<p>Responsibilities:</p>
+<ul>
+    <li>
+        <p>Modern UI appearance
+    </li>
+    <li>
+        <p>Mobile compatibility
+    </li>
+    <li>
+        <p>Layout management
+    </li>
+    <li>
+        <p>Visual feedback
+    </li>
+    <li>
+        <p><br></p>
+    </li>
+</ul>
+<h3>JavaScript</h3>
+<p>Handles dynamic frontend behavior.</p>
+<p>Responsibilities:</p>
+<ul>
+    <li>
+        <p>Fetch supported languages
+    </li>
+    <li>
+        <p>Submit translation requests
+    </li>
+    <li>
+        <p>Display results
+    </li>
+    <li>
+        <p>Copy translated text
+    </li>
+    <li>
+        <p>Text-to-speech functionality
+    </li>
+    <li>
+        <p>Loading indicators
+    </li>
+    <li>
+        <p><br></p>
+    </li>
+</ul>
+<hr>
+<h2>Translation Infrastructure</h2>
+<h3>LibreTranslate</h3>
+<p>Open-source translation platform hosted on a remote VPS.</p>
+<p>Responsibilities:</p>
+<ul>
+    <li>
+        <p>Language translation
+    </li>
+    <li>
+        <p>Language detection support
+    </li>
+    <li>
+        <p>Translation API endpoints
+    </li>
+    <li>
+        <p><br></p>
+    </li>
+</ul>
+<h3>Linux VPS</h3>
+<p>Remote server used to host the translation engine.</p>
+<p>Responsibilities:</p>
+<ul>
+    <li>
+        <p>Running LibreTranslate
+    </li>
+    <li>
+        <p>Managing translation services
+    </li>
+    <li>
+        <p>Handling translation requests
+    </li>
+    <li>
+        <p>Providing API access
+    </li>
+    <li>
+        <p><br></p>
+    </li>
+</ul>
+<h3>Nginx Reverse Proxy</h3>
+<p>Used to expose the translation service securely.</p>
+<p>Responsibilities:</p>
+<ul>
+    <li>
+        <p>Forward external requests
+    </li>
+    <li>
+        <p>Proxy traffic to LibreTranslate
+    </li>
+    <li>
+        <p>Simplify API access
+    </li>
+    <li>
+        <p>Improve deployment flexibility
+    </li>
+    <li>
+        <p><br></p>
+    </li>
+</ul>
+<h3>systemd Service</h3>
+<p>Used to keep LibreTranslate running continuously.</p>
+<p>Responsibilities:</p>
+<ul>
+    <li>
+        <p>Automatic startup
+    </li>
+    <li>
+        <p>Crash recovery
+    </li>
+    <li>
+        <p>Service monitoring
+    </li>
+    <li>
+        <p>Background execution
+    </li>
+    <li>
+        <p><br></p>
+    </li>
+</ul>
+<hr>
+<h1>Key Features</h1>
+<h2>Language Translation</h2>
+<p>Translate text between multiple supported languages using a self-hosted translation engine.</p>
+<hr>
+<h2>Dynamic Language Loading</h2>
+<p>Supported languages are automatically retrieved from the translation server and populated into dropdown menus.</p>
+<hr>
+<h2>Copy Translation</h2>
+<p>Users can instantly copy translated text to the clipboard.</p>
+<hr>
+<h2>Text-to-Speech</h2>
+<p>Translated text can be spoken aloud using the browser's built-in speech synthesis capabilities.</p>
+<hr>
+<h2>Responsive User Interface</h2>
+<p>The application adapts to different screen sizes including desktops, tablets, and mobile devices.</p>
+<hr>
+<h2>Loading Indicators</h2>
+<p>Visual feedback informs users when translation requests are being processed.</p>
+<hr>
+<h2>Error Handling</h2>
+<p>Gracefully handles:</p>
+<ul>
+    <li>
+        <p>Network failures
+    </li>
+    <li>
+        <p>API timeouts
+    </li>
+    <li>
+        <p>Translation service errors
+    </li>
+    <li>
+        <p>Invalid responses
+    </li>
+    <li>
+        <p><br></p>
+    </li>
+</ul>
+<hr>
+<h2>Self-Hosted Translation Engine</h2>
+<p>Provides full control over the translation infrastructure without relying on commercial API subscriptions.</p>
+<hr>
+<h1>API Endpoints</h1>
+<h2>Home Page</h2>
+<p>GET /</p>
+<p>Purpose:</p>
+<p>Render the main application interface.<br><br></p>
+<hr>
+<h2>Translate</h2>
+<p>POST /translate</p>
+<p>Purpose:</p>
+<p>Receive text and language selections from users and return translated content.</p>
+<p>Request Example:</p>
+<p>{<br>"text": "Hello",<br>"source": "en",<br>"target": "fr"<br>}</p>
+<p>Response Example:</p>
+<p>{<br>"translatedText": "Bonjour"<br>}</p>
+<hr>
+<h2>Languages</h2>
+<p>GET /languages</p>
+<p>Purpose:</p>
+<p>Retrieve supported languages from the translation service.</p>
+<p>Response Example:</p>
+<p>[<br>{<br>"code": "en",<br>"name": "English"<br>},<br>{<br>"code": "fr",<br>"name": "French"<br>}<br>]<br><br></p>
+<hr>
+<h1>Concepts Demonstrated<br></h1>
+<p>This project demonstrates practical understanding of:</p>
+<ul>
+    <li>
+        <p>Object-Oriented Programming
+    </li>
+    <li>
+        <p>Client-Server Architecture
+    </li>
+    <li>
+        <p>REST APIs
+    </li>
+    <li>
+        <p>HTTP Methods (GET and POST)
+    </li>
+    <li>
+        <p>JSON Serialization and Parsing
+    </li>
+    <li>
+        <p>Frontend-Backend Communication
+    </li>
+    <li>
+        <p>Linux Server Administration
+    </li>
+    <li>
+        <p>Reverse Proxy Configuration
+    </li>
+    <li>
+        <p>Service Management with systemd
+    </li>
+    <li>
+        <p>Responsive Web Design
+    </li>
+    <li>
+        <p>API Integration
+    </li>
+    <li>
+        <p>Error Handling
+    </li>
+    <li>
+        <p>Asynchronous JavaScript Operations
+    </li>
+    <li>
+        <p><br>
+    </li>
+</ul>
+<hr>
+<h1>Future Improvements</h1>
+<p>Potential enhancements include:
+<ul>
+    <li>
+        <p>Translation history
+    </li>
+
+    <li>
+        <p>Translation caching
+    </li>
+    <li>
+        <p>Multi-engine translation routing
+    </li>
+    <li>
+        <p>Automatic language detection
+    </li>
+
+    <li>
+        <p>Dark/light mode themes
+    </li>
+
+    <li>
+        <p>Database integration
+    </li>
+    <li>
+        <p>Usage rate limiting
+    </li>
+    <li>
+        <p>Multi-provider translation fallback system
+    </li>
+    <li>
+        <p><br></p>
+    </li>
+</ul>
+<hr>
+<h1>Skills Demonstrated<br></h1>
+<ul>
+    <li>
+        <p>Python Development
+    </li>
+    <li>
+        <p>Flask Development
+    </li>
+    <li>
+        <p>JavaScript Development
+    </li>
+    <li>
+        <p>Linux Administration
+    </li>
+    <li>
+        <p>API Development
+    </li>
+    <li>
+        <p>API Consumption
+    </li>
+    <li>
+        <p>Network Communication
+    </li>
+    <li>
+        <p>Web Development
+    </li>
+    <li>
+        <p>System Design
+    </li>
+    <li>
+        <p>VPS Management
+    </li>
+    <li>
+        <p>Nginx Configuration
+    </li>
+    <li>
+        <p>JSON Processing
+    </li>
+    <li>
+        <p>HTTP Protocol Usage
+    </li>
+    <li>
+        <p>Software Deployment
+    </li>
+    <li>
+        <p>Problem Solving
+    </li>
+</ul>
