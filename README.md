@@ -2,7 +2,7 @@
 
 A full-stack language translation web application built with Flask, JavaScript, HTML, and CSS. The application allows users to translate text between multiple languages using a self-hosted LibreTranslate API running on a Linux VPS.
 
----
+![alt text](<Screenshot 2026-06-06 104445.png>)
 
 ## 📖 Overview
 
@@ -335,8 +335,8 @@ This project is released under the MIT License.
 Computer Network Engineering Student
 University of Malawi (UNIMA)
 
-GitHub: https://github.com/YOUR_USERNAME
+GitHub: https://github.com/Reysam50
 
-Portfolio: Add Portfolio Link Here
+Portfolio: https://lyson-reysam-mbughi-portifolio-webs.vercel.app
 
-LinkedIn: Add LinkedIn Profile Here
+LinkedIn: www.linkedin.com/in/lyson-mbughi-455743353
